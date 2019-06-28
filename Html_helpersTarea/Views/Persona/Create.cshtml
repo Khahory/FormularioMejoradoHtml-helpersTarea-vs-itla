@@ -1,0 +1,223 @@
+﻿
+@using Html_helpersTarea.Models;
+@model Persona
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm("Create", "Persona", null, FormMethod.Post, new { id = "MiFormulario"}))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Persona</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cedula, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Apellido, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Edad, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Edad, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Edad, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CorreoElectronico, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CorreoElectronico, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CorreoElectronico, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.GeneroPersona, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.GeneroPersona, new SelectList(Enum.GetValues(typeof(Persona.Genero))), htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.GeneroPersona, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EstadoCivil, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div>
+                Casado/a:   @Html.RadioButton("EstadoCivil", "Casado/a")
+                Solter/a:   @Html.RadioButton("EstadoCivil", "Solter/a")
+                Viodo/a:   @Html.RadioButton("EstadoCivil", "Viodo/a")
+                Union:   @Html.RadioButton("EstadoCivil", "Union")
+            </div>
+            @Html.ValidationMessageFor(model => model.EstadoCivil, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Hobby1, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 custom-control custom-checkbox">
+            <div>
+                @Html.CheckBoxFor(model => model.Hobby1, htmlAttributes: new { @class = "custom-control-input", type = "checkbox" })
+            </div>
+            @Html.ValidationMessageFor(model => model.Hobby1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Hobby2, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 custom-control custom-checkbox">
+            <div>
+                @Html.CheckBoxFor(model => model.Hobby2, htmlAttributes: new { @class = "custom-control-input", type = "checkbox" })
+            </div>
+            @Html.ValidationMessageFor(model => model.Hobby2, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Hobby3, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 custom-control custom-checkbox">
+            <div>
+                @Html.CheckBoxFor(model => model.Hobby3, htmlAttributes: new { @class = "custom-control-input", type = "checkbox" })
+            </div>
+            @Html.ValidationMessageFor(model => model.Hobby3, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Hobby4, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 custom-control custom-checkbox">
+            <div>
+                @Html.CheckBoxFor(model => model.Hobby4, htmlAttributes: new { @class = "custom-control-input", type = "checkbox" })
+            </div>
+            @Html.ValidationMessageFor(model => model.Hobby4, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CorreoElectronico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GeneroPersona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoCivil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hobby1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hobby2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hobby3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hobby4)
+        </th>
+        <th></th>
+    </tr>
+
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Cedula)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Edad)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CorreoElectronico)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.GeneroPersona)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.EstadoCivil)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Hobby1)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Hobby2)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Hobby3)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Hobby4)
+        </td>
+    </tr>
+    
+
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
